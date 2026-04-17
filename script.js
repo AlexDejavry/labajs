@@ -1,7 +1,9 @@
+/* лаба 1 */
 console.log("Система учета регистраций запущена");
 
 /* лаба 2 */
 
+// список зарегистрированных пользователей
 const users = [
     { id: 1, title: "user1", value: 1200, status: "new", createdAt: "2026-04-01" },
     { id: 2, title: "user2", value: 500, status: "done", createdAt: "2026-04-02" },
@@ -11,12 +13,14 @@ const users = [
     { id: 6, title: "user6", value: 950, status: "new", createdAt: "2026-04-06" }
 ];
 
+// настройки приложения
 const appConfig = {
     appTitle: "Учет регистрации",
     defaultStatus: "new",
     minValueForFilter: 800
 };
 
+// количество действий пользователя
 let actionCount = 0;
 actionCount++;
 actionCount++;
@@ -34,6 +38,7 @@ if (Number.isNaN(minValue)) {
     console.log("minValue:", minValue);
 }
 
+// проверка доступа: возраст от 18 до 65 и не заблокирован
 const userAge = 19;
 const isBlocked = false;
 
@@ -61,7 +66,7 @@ if (item.value >= 1000) {
     console.log("Низкое значение");
 }
 
-/* цикл for */
+
 let newCount = 0;
 
 for (let i = 0; i < users.length; i++) {
@@ -72,7 +77,7 @@ for (let i = 0; i < users.length; i++) {
 
 console.log("NEW пользователей:", newCount);
 
-/* цикл while */
+
 let index = 0;
 
 while (index < users.length) {
@@ -98,6 +103,7 @@ function showAll() {
     showOutput(result);
 }
 
+// фильтрует только новых пользователей
 function showNew() {
     let result = "НОВЫЕ ПОЛЬЗОВАТЕЛИ:\n\n";
 
@@ -137,6 +143,7 @@ function showStats() {
     showOutput(result);
 }
 
+// вешаю обработчики на кнопки после загрузки страницы
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnAll").addEventListener("click", showAll);
     document.getElementById("btnNew").addEventListener("click", showNew);
